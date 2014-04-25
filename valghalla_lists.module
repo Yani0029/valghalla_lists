@@ -65,5 +65,8 @@ function valghalla_lists_permission(){
     'valghalla view kvittering list' => array(
       'title'=> t('Se "Kvittering for diaeter" liste'),
     ),
+    'valghalla view all parties' => array(
+      'title'=> t('Se "Valghalla alle pariter"'),
+    ),
   );
 }

@@ -2,7 +2,7 @@
 <?php if($polling_station): ?>
   <h3><?php
     $polling_station_nid = array_keys($polling_station);
-    print "<a href='/volunteers/station/".$polling_station_nid[0] ."'>".$polling_station[$polling_station_nid[0]]."</a>"; ?></h3>
+    print "<a href='/volunteers/station/".$polling_station_nid[0] ."'>Kvittering for Di&aelig;t - ".$polling_station[$polling_station_nid[0]]."</a>"; ?></h3>
   <?php if($volunteer_lists): ?>
   <table class="table table-striped">
     <thead>

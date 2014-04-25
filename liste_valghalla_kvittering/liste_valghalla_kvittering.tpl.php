@@ -10,8 +10,10 @@
       </li>
       <?php endif;?>
   </ul>
+    <?php endforeach; ?>
   <?php endforeach; ?>
-  <?php endforeach; ?>
+  <?php elseif (!$user_restrict_stations): ?>
+  <div></div>
   <?php else: ?>
   <div>Der er ikke valgt noget valg</div>
 <?php endif;?>

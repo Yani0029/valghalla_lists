@@ -56,6 +56,14 @@ function liste_valghalla_kvittering_theme($existing, $type, $theme, $path) {
  * Display a list of all polling stations group by constituency
  */
 function liste_valghalla_kvittering_listpage() {
+  global $user;
+  $user = user_load($user->uid);
+  $user_restrict_stations = array();
+  if ($user_polling_stations_list = field_get_items('user', $user, 'field_polling_station')) {
+    foreach ($user_polling_stations_list as $key => $nids) {
+      $user_restrict_stations[$nids['nid']] = $nids['nid'];
+    }
+  }
   $lists = array();
   if(isset($_SESSION['election_nid'])){
     $default_election = $_SESSION['election_nid'];
@@ -63,34 +71,32 @@ function liste_valghalla_kvittering_listpage() {
   else {
     return theme('liste_valghalla_kvittering', array(
           'lists' => $lists,
+          'user_restrict_stations' => $user_restrict_stations,
   ));
   }
-
   $stations = array();
   // Election is NOT empty
   if(isset($default_election)) {
     $election = node_load($default_election);
-    //dpm($election);
     if(isset($election->field_polling_stations['und'])) {
       foreach ($election->field_polling_stations['und'] as $station) {
         $stations[] = $station['target_id'];
       }
     }
-
-    // We need info on the polling station nodes (constituency)
-    // So we just load them all.
+    // Load all polling stations
     foreach (node_load_multiple($stations) as $polling_station) {
       $polling_station_nid = $polling_station->nid;
-
+      if (!array_key_exists($polling_station_nid,$user_restrict_stations)) {
+        continue;
+      }
       $constituency_field = field_get_items('node', $polling_station, 'field_constituency');
       $lists[$constituency_field[0]['nid']][$polling_station_nid] = $polling_station_nid;
-
     }
     $lists = _liste_valghalla_generate_list_array($lists);
-
   }
   return theme('liste_valghalla_kvittering', array(
           'lists' => $lists,
+          'user_restrict_stations' =>$user_restrict_stations,
   ));
 }
 function _liste_valghalla_generate_list_array($lists) {
@@ -120,6 +126,13 @@ function _liste_valghalla_generate_list_array($lists) {
  */
 function liste_valghalla_kvittering_listpage_station($station_id) {
   global $user, $language;
+  $user = user_load($user->uid);
+  $user_restrict_parties = "";
+  if ($user_party = field_get_items('user', $user, 'field_party')) {
+    $user_restrict_parties = $user_party[0]['tid'];
+  }
+
+  $user_party_permission = user_access('valghalla view all parties');
   $volunteer_list = array();
   if(isset($_SESSION['election_nid'])){
     $default_election = $_SESSION['election_nid'];
@@ -142,18 +155,6 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
   drupal_set_title("Kvitteringslister for di¾ter - Valgsted " . $polling_station->title);
 
   // Get role weight for sorting.
-
-  // ************* GET volunteers *******
-  /* List table: Party*,
-   *             role*,
-   *             name(link),
-   *             KM,
-   *             hours,
-   *             diaet,
-   *             edit-link(field_collection/volunteer-page, ?destination is the list)
-   * Exporting list*
-   */
-
   $volunteer_query = new EntityFieldQuery();
 
   $volunteer_query->entityCondition('entity_type', 'field_collection_item')
@@ -186,8 +187,8 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
       }
 
       if ($party_node = field_get_items('node',$node,'field_party')) {
-        $party_node = $party_node[0]['tid'];
-        $party_node =  taxonomy_term_load($party_node);
+        $party_node_tid = $party_node[0]['tid'];
+        $party_node =  taxonomy_term_load($party_node_tid);
       }
     
       if ($km = field_get_items('field_collection_item',$fc_item,'field_driver_km')) {
@@ -196,6 +197,23 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
 
       if ($hours = field_get_items('field_collection_item',$fc_item,'field_role_hours')) {
         $hours = $hours[0]['value'];
+      }
+      if (!isset($_SESSION['party_tid'])) {
+        $_SESSION['party_id'] = $user_restrict_parties;
+      }
+
+      if ($user_party_permission) {
+        if ($_SESSION['party_tid'] !== $party_node_tid && $_SESSION['party_tid'] != 0) {
+          continue;
+        }
+      }else {
+        if (($_SESSION['party_tid'] !== $user_restrict_parties && $_SESSION['party_tid'] != 0)
+            || ($_SESSION['party_tid'] !== $party_node_tid && $_SESSION['party_tid'] != 0)) {
+          continue;
+        }
+        elseif ($_SESSION['party_tid'] == 0 && $user_restrict_parties != $party_node_tid) {
+          continue;
+        }
       }
       $volunteer_list[$node->nid] = array(
           'polling_station' => $polling_station->title,
@@ -215,5 +233,4 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
                  'volunteer_lists' => $volunteer_list,
                  'polling_station' => array($station_id => $polling_station->title)
   ));
-
 }
