@@ -15,7 +15,7 @@ function liste_valghalla_kvittering_menu() {
           'title' => t('Kvitteringslister'),
           'page callback' => 'liste_valghalla_kvittering_listpage',
           // TODO : check user permission. which roles.
-          'access callback' => TRUE,
+          'access callback' => 'user_access',
           'access arguments' => array("valghalla view kvittering list"),
           'type' => MENU_CALLBACK,
     );
@@ -24,7 +24,7 @@ function liste_valghalla_kvittering_menu() {
           'page callback' => 'liste_valghalla_kvittering_listpage_station',
           'page arguments' => array(2),
           // TODO : check user permission. which roles.
-          'access callback' => TRUE,
+          'access callback' => 'user_access',
           'access arguments' => array('valghalla view kvittering list'),
           'type' => MENU_CALLBACK,
     );
@@ -231,6 +231,7 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
           'diaet' => ($diaet) ? $diaet : (isset($data[$role_node->nid]) ? $data[$role_node->nid] : ""),
       );
     }
+    // sorting volunteers
   }
   return theme('liste_valghalla_kvittering_station', array(
                  'volunteer_lists' => $volunteer_list,
