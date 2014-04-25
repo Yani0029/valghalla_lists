@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Liste Valgstyrere og tilforordnede feature.
+ */
+
+include_once 'liste_valgstyrere_og_tilforordnede.features.inc';

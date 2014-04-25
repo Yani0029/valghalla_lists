@@ -11,6 +11,318 @@ function liste_parti_oversigt_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'all_volunteers';
+  $view->description = 'all volunteer lists';
+  $view->tag = 'valghalla';
+  $view->base_table = 'node';
+  $view->human_name = 'All volunteers';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Standarder */
+  $handler = $view->new_display('default', 'Standarder', 'default');
+  $handler->display->display_options['css_class'] = 'kvitteringsliste';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    4 => '4',
+    8 => '8',
+  );
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer pr. side';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['grouping'] = '';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'edit_node' => 'edit_node',
+    'delete_node' => 'delete_node',
+    'title' => 'title',
+    'entity_id' => 'entity_id',
+    'entity_id_1' => 'entity_id_1',
+    'entity_id_2' => 'entity_id_2',
+    'entity_id_3' => 'entity_id_3',
+    'entity_id_4' => 'entity_id_4',
+    'entity_id_5' => 'entity_id_5',
+    'entity_id_6' => 'entity_id_6',
+    'view_node' => 'view_node',
+  );
+  $handler->display->display_options['style_options']['default'] = 'title';
+  $handler->display->display_options['style_options']['info'] = array(
+    'edit_node' => array(
+      'align' => '',
+      'separator' => '',
+    ),
+    'delete_node' => array(
+      'align' => '',
+      'separator' => '',
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+    ),
+    'entity_id' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+    ),
+    'entity_id_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+    ),
+    'entity_id_2' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+    ),
+    'entity_id_3' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+    ),
+    'entity_id_4' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+    ),
+    'entity_id_5' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+    ),
+    'entity_id_6' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+    ),
+    'view_node' => array(
+      'align' => 'views-align-right',
+      'separator' => '',
+    ),
+  );
+  /* Forbindelse: Felt: Parti (field_party) */
+  $handler->display->display_options['relationships']['field_party_tid']['id'] = 'field_party_tid';
+  $handler->display->display_options['relationships']['field_party_tid']['table'] = 'field_data_field_party';
+  $handler->display->display_options['relationships']['field_party_tid']['field'] = 'field_party_tid';
+  /* Forbindelse: Indhold: Valginfo (field_electioninfo) */
+  $handler->display->display_options['relationships']['field_electioninfo_value']['id'] = 'field_electioninfo_value';
+  $handler->display->display_options['relationships']['field_electioninfo_value']['table'] = 'field_data_field_electioninfo';
+  $handler->display->display_options['relationships']['field_electioninfo_value']['field'] = 'field_electioninfo_value';
+  /* Felt: Indhold: Redigér-link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  /* Felt: Indhold: Slet-link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['exclude'] = TRUE;
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  /* Felt: Indhold: CPR Number */
+  $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_cpr_number';
+  $handler->display->display_options['fields']['entity_id']['field'] = 'field_cpr_number';
+  $handler->display->display_options['fields']['entity_id']['label'] = 'CPR';
+  $handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
+  /* Felt: Indhold: Email */
+  $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
+  $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_email';
+  $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_email';
+  $handler->display->display_options['fields']['entity_id_1']['label'] = 'E-mail';
+  $handler->display->display_options['fields']['entity_id_1']['exclude'] = TRUE;
+  /* Felt: Felt: Parti */
+  $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
+  $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_party';
+  $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_party';
+  $handler->display->display_options['fields']['entity_id_2']['type'] = 'taxonomy_term_reference_plain';
+  /* Felt: Indhold: Telefon */
+  $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
+  $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_phone';
+  $handler->display->display_options['fields']['entity_id_3']['field'] = 'field_phone';
+  $handler->display->display_options['fields']['entity_id_3']['exclude'] = TRUE;
+  /* Felt: Indhold: Telefon 2 */
+  $handler->display->display_options['fields']['entity_id_4']['id'] = 'entity_id_4';
+  $handler->display->display_options['fields']['entity_id_4']['table'] = 'field_data_field_phone2';
+  $handler->display->display_options['fields']['entity_id_4']['field'] = 'field_phone2';
+  $handler->display->display_options['fields']['entity_id_4']['exclude'] = TRUE;
+  /* Felt: Felt: Status */
+  $handler->display->display_options['fields']['entity_id_6']['id'] = 'entity_id_6';
+  $handler->display->display_options['fields']['entity_id_6']['table'] = 'field_data_field_rsvp';
+  $handler->display->display_options['fields']['entity_id_6']['field'] = 'field_rsvp';
+  $handler->display->display_options['fields']['entity_id_6']['label'] = 'RSVP';
+  /* Felt: Indhold: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['text'] = '[edit_node] | [delete_node]';
+  /* Kontekstuelt filter: Felt: Parti (field_party) */
+  $handler->display->display_options['arguments']['field_party_tid']['id'] = 'field_party_tid';
+  $handler->display->display_options['arguments']['field_party_tid']['table'] = 'field_data_field_party';
+  $handler->display->display_options['arguments']['field_party_tid']['field'] = 'field_party_tid';
+  $handler->display->display_options['arguments']['field_party_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_party_tid']['exception']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['field_party_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_party_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_party_tid']['default_argument_options']['argument'] = 'all';
+  $handler->display->display_options['arguments']['field_party_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_party_tid']['specify_validation'] = TRUE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'volunteers' => 'volunteers',
+  );
+  $handler->display->display_options['filters']['type']['group'] = '0';
+
+  /* Display: Alle frivillige */
+  $handler = $view->new_display('block', 'Alle frivillige', 'all_volunteers');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indhold: Redigér-link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  /* Felt: Indhold: Slet-link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['exclude'] = TRUE;
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  /* Felt: Indhold: CPR Number */
+  $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_cpr_number';
+  $handler->display->display_options['fields']['entity_id']['field'] = 'field_cpr_number';
+  $handler->display->display_options['fields']['entity_id']['label'] = 'CPR';
+  $handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
+  /* Felt: Indhold: Email */
+  $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
+  $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_email';
+  $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_email';
+  $handler->display->display_options['fields']['entity_id_1']['label'] = 'E-mail';
+  $handler->display->display_options['fields']['entity_id_1']['exclude'] = TRUE;
+  /* Felt: Felt: Parti */
+  $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
+  $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_party';
+  $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_party';
+  $handler->display->display_options['fields']['entity_id_2']['type'] = 'taxonomy_term_reference_plain';
+  /* Felt: Indhold: Telefon */
+  $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
+  $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_phone';
+  $handler->display->display_options['fields']['entity_id_3']['field'] = 'field_phone';
+  $handler->display->display_options['fields']['entity_id_3']['exclude'] = TRUE;
+  /* Felt: Indhold: Telefon 2 */
+  $handler->display->display_options['fields']['entity_id_4']['id'] = 'entity_id_4';
+  $handler->display->display_options['fields']['entity_id_4']['table'] = 'field_data_field_phone2';
+  $handler->display->display_options['fields']['entity_id_4']['field'] = 'field_phone2';
+  $handler->display->display_options['fields']['entity_id_4']['exclude'] = TRUE;
+  /* Felt: Felt: Status */
+  $handler->display->display_options['fields']['entity_id_6']['id'] = 'entity_id_6';
+  $handler->display->display_options['fields']['entity_id_6']['table'] = 'field_data_field_rsvp';
+  $handler->display->display_options['fields']['entity_id_6']['field'] = 'field_rsvp';
+  $handler->display->display_options['fields']['entity_id_6']['label'] = 'RSVP';
+  /* Felt: Indhold: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['text'] = '[edit_node] | [delete_node]';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'volunteers' => 'volunteers',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Felt: Status (field_rsvp) */
+  $handler->display->display_options['filters']['field_rsvp_value']['id'] = 'field_rsvp_value';
+  $handler->display->display_options['filters']['field_rsvp_value']['table'] = 'field_data_field_rsvp';
+  $handler->display->display_options['filters']['field_rsvp_value']['field'] = 'field_rsvp_value';
+  $handler->display->display_options['filters']['field_rsvp_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_rsvp_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_rsvp_value']['expose']['operator_id'] = 'field_rsvp_value_op';
+  $handler->display->display_options['filters']['field_rsvp_value']['expose']['label'] = 'RSVP';
+  $handler->display->display_options['filters']['field_rsvp_value']['expose']['operator'] = 'field_rsvp_value_op';
+  $handler->display->display_options['filters']['field_rsvp_value']['expose']['identifier'] = 'rsvp';
+  $translatables['all_volunteers'] = array(
+    t('Standarder'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Elementer pr. side'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
+    t('term fra field_party'),
+    t('field collection item from field_electioninfo'),
+    t('Redigér-link'),
+    t('Slet-link'),
+    t('Titel'),
+    t('CPR'),
+    t('E-mail'),
+    t('Parti'),
+    t('Telefon'),
+    t('Telefon 2'),
+    t('RSVP'),
+    t('[edit_node] | [delete_node]'),
+    t('Alle'),
+    t('Alle frivillige'),
+  );
+  $export['all_volunteers'] = $view;
+
+  $view = new view();
   $view->name = 'partioversigt';
   $view->description = '';
   $view->tag = '';
@@ -555,6 +867,14 @@ function liste_parti_oversigt_views_default_views() {
   $handler->display->display_options['fields']['field_vlnt_station']['settings'] = array(
     'link' => 1,
   );
+  /* Felt: Field collection item: Rolle */
+  $handler->display->display_options['fields']['field_post_role']['id'] = 'field_post_role';
+  $handler->display->display_options['fields']['field_post_role']['table'] = 'field_data_field_post_role';
+  $handler->display->display_options['fields']['field_post_role']['field'] = 'field_post_role';
+  $handler->display->display_options['fields']['field_post_role']['relationship'] = 'field_electioninfo_value';
+  $handler->display->display_options['fields']['field_post_role']['settings'] = array(
+    'link' => 0,
+  );
   /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -567,12 +887,6 @@ function liste_parti_oversigt_views_default_views() {
 </span>
 </div>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  /* Felt: Indhold: Label */
-  $handler->display->display_options['fields']['field_label']['id'] = 'field_label';
-  $handler->display->display_options['fields']['field_label']['table'] = 'field_data_field_label';
-  $handler->display->display_options['fields']['field_label']['field'] = 'field_label';
-  $handler->display->display_options['fields']['field_label']['label'] = '';
-  $handler->display->display_options['fields']['field_label']['element_label_colon'] = FALSE;
   /* Felt: Field collection item: Parti plads */
   $handler->display->display_options['fields']['field_post_party']['id'] = 'field_post_party';
   $handler->display->display_options['fields']['field_post_party']['table'] = 'field_data_field_post_party';
@@ -674,6 +988,7 @@ function liste_parti_oversigt_views_default_views() {
     t('Alle'),
     t('Partioversigt'),
     t('/ [entity_id_8]'),
+    t('Rolle'),
     t('<div>
 <h4>[title] ([entity_id_6] )</h4>
 <span calss="mobile">[entity_id_7] [entity_id_8]
