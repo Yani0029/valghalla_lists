@@ -34,5 +34,8 @@ function valghalla_lists_permission(){
     'valghalla view no-email list' => array(
       'title'=> t('Se "Deltagere uden e-mail adresse" liste'),
     ),
+    'valghalla view kvittering list' => array(
+      'title'=> t('Se "Kvittering for diaeter" liste'),
+    ),
   );
 }
