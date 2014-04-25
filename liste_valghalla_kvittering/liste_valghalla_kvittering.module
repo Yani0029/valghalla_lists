@@ -190,7 +190,10 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
         $party_node_tid = $party_node[0]['tid'];
         $party_node =  taxonomy_term_load($party_node_tid);
       }
-    
+      else {
+        $party_node_tid = "";
+      }
+
       if ($km = field_get_items('field_collection_item',$fc_item,'field_driver_km')) {
         $km = $km[0]['value'];
       }
