@@ -14,7 +14,6 @@ function liste_valghalla_kvittering_menu() {
   $items['valghalla_lists/kvittering'] =  array(
           'title' => t('Kvitteringslister'),
           'page callback' => 'liste_valghalla_kvittering_listpage',
-          // TODO : check user permission. which roles.
           'access callback' => 'user_access',
           'access arguments' => array("valghalla view kvittering list"),
           'type' => MENU_CALLBACK,
@@ -23,7 +22,6 @@ function liste_valghalla_kvittering_menu() {
           'title' => t('Kvitteringslister'),
           'page callback' => 'liste_valghalla_kvittering_listpage_station',
           'page arguments' => array(2),
-          // TODO : check user permission. which roles.
           'access callback' => 'user_access',
           'access arguments' => array('valghalla view kvittering list'),
           'type' => MENU_CALLBACK,
@@ -76,10 +74,10 @@ function liste_valghalla_kvittering_listpage() {
   }
   $stations = array();
   // Election is NOT empty
-  if(isset($default_election)) {
+  if(isset($default_election) && $default_election != 0) {
     $election = node_load($default_election);
-    if(isset($election->field_polling_stations['und'])) {
-      foreach ($election->field_polling_stations['und'] as $station) {
+    if($station_nids = field_get_items('node', $election, 'field_polling_stations')) {
+      foreach ($station_nids as $station) {
         $stations[] = $station['target_id'];
       }
     }
@@ -90,7 +88,9 @@ function liste_valghalla_kvittering_listpage() {
         continue;
       }
       $constituency_field = field_get_items('node', $polling_station, 'field_constituency');
-      $lists[$constituency_field[0]['nid']][$polling_station_nid] = $polling_station_nid;
+      foreach ($constituency_field as $constituency) {
+        $lists[$constituency['nid']][$polling_station_nid] = $polling_station_nid;
+      }
     }
     $lists = _liste_valghalla_generate_list_array($lists);
   }
@@ -108,16 +108,18 @@ function _liste_valghalla_generate_list_array($lists) {
 
     foreach ($station_nids as $nid => $station) {
       $node = node_load($nid);
-      $lists[$constituency_nid] = array(
-              'title' => $constituency->title,
-              $nid => array(
-                    $nid => $station_nids,
+      $lists_node[$constituency_nid][$nid] = array(
                     'title' => $node->title,
-      ));
+                    );
+      // Sorting polling station
+      aasort($lists_node[$constituency_nid],"title");
+      $lists[$constituency_nid] = array(
+              'c_title' => $constituency->title,
+              'nodes'=> $lists_node[$constituency_nid]);
     }
-    // Sorting polling station
   }
   // Sorting constituency
+  aasort($lists,"c_title");
   return $lists;
 }
 /**
@@ -132,7 +134,7 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
     $user_restrict_parties = $user_party[0]['tid'];
   }
 
-  $user_party_permission = user_access('valghalla view all parties');
+  $user_party_permission = user_access('valghalla-list view all parties');
   $volunteer_list = array();
   if(isset($_SESSION['election_nid'])){
     $default_election = $_SESSION['election_nid'];
@@ -149,12 +151,13 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
   }
 
   $polling_station = node_load($station_id);
-  $constituency_id = $polling_station->field_constituency[$language->language][0]['nid'];
-  $constituency = node_load($constituency_id);
+  if ($constituency_id = field_get_items('node', $polling_station, 'field_constituency')) {
+    $constituency_id = $constituency_id[0]['nid'];
+    $constituency = node_load($constituency_id);
+  }
 
-  drupal_set_title("Kvitteringslister for di¾ter - Valgsted " . $polling_station->title);
+  drupal_set_title("");
 
-  // Get role weight for sorting.
   $volunteer_query = new EntityFieldQuery();
 
   $volunteer_query->entityCondition('entity_type', 'field_collection_item')
@@ -201,22 +204,9 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
       if ($hours = field_get_items('field_collection_item',$fc_item,'field_role_hours')) {
         $hours = $hours[0]['value'];
       }
-      if (!isset($_SESSION['party_tid'])) {
-        $_SESSION['party_id'] = $user_restrict_parties;
-      }
 
-      if ($user_party_permission) {
-        if ($_SESSION['party_tid'] !== $party_node_tid && $_SESSION['party_tid'] != 0) {
-          continue;
-        }
-      }else {
-        if (($_SESSION['party_tid'] !== $user_restrict_parties && $_SESSION['party_tid'] != 0)
-            || ($_SESSION['party_tid'] !== $party_node_tid && $_SESSION['party_tid'] != 0)) {
-          continue;
-        }
-        elseif ($_SESSION['party_tid'] == 0 && $user_restrict_parties != $party_node_tid) {
-          continue;
-        }
+      if (!$user_party_permission && $user_restrict_parties !== $party_node_tid) {
+        continue;
       }
       $volunteer_list[$node->nid] = array(
           'polling_station' => $polling_station->title,
@@ -232,9 +222,24 @@ function liste_valghalla_kvittering_listpage_station($station_id) {
       );
     }
     // sorting volunteers
+    aasort($volunteer_list,"name");
   }
   return theme('liste_valghalla_kvittering_station', array(
                  'volunteer_lists' => $volunteer_list,
                  'polling_station' => array($station_id => $polling_station->title)
   ));
+}
+
+function aasort (&$array, $key) {
+    $sorter=array();
+    $ret=array();
+    reset($array);
+    foreach ($array as $ii => $va) {
+        $sorter[$ii]=$va[$key];
+    }
+    asort($sorter);
+    foreach ($sorter as $ii => $va) {
+        $ret[$ii]=$array[$ii];
+    }
+    $array=$ret;
 }
