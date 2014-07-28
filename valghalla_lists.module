@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Implements hook_menu()
  */
@@ -7,7 +6,7 @@ function valghalla_lists_menu(){
   $items = array();
 
   $items['valghalla_lists'] = array(
-    'title' => 'Valghalla Lister',
+    'title' => 'Lister',
     'file path' => drupal_get_path('module', 'system'),
     'file' => 'system.admin.inc',
     'page callback' => 'system_admin_menu_block_page',

@@ -13,9 +13,9 @@ function liste_frivillige_uden_email_views_default_views() {
   $view = new view();
   $view->name = 'frivillige_uden_email';
   $view->description = '';
-  $view->tag = 'default';
+  $view->tag = 'valghalla, list';
   $view->base_table = 'node';
-  $view->human_name = 'frivillige uden email';
+  $view->human_name = 'Liste frivillige uden email';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */

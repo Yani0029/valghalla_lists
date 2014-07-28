@@ -13,7 +13,7 @@ function liste_beskeder_views_default_views() {
   $view = new view();
   $view->name = 'Beskeder';
   $view->description = '';
-  $view->tag = 'default';
+  $view->tag = 'valghalla, list';
   $view->base_table = 'node';
   $view->human_name = 'Liste Beskeder';
   $view->core = 7;

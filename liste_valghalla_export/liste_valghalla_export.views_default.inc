@@ -13,7 +13,7 @@ function liste_valghalla_export_views_default_views() {
   $view = new view();
   $view->name = 'liste_valghalla_export';
   $view->description = 'lists of volunteers';
-  $view->tag = 'valhalla';
+  $view->tag = 'valghalla, list';
   $view->base_table = 'node';
   $view->human_name = 'Liste Valghalla export';
   $view->core = 7;

@@ -13,7 +13,7 @@ function liste_m_cpr_nummer_views_default_views() {
   $view = new view();
   $view->name = 'liste_valgsted_m_cpr';
   $view->description = 'Liste(kvitteringsliste) for valgsted';
-  $view->tag = '';
+  $view->tag = 'valghalla, list';
   $view->base_table = 'node';
   $view->human_name = 'Liste valgsted m cpr';
   $view->core = 7;
@@ -150,28 +150,28 @@ function liste_m_cpr_nummer_views_default_views() {
       'separator' => '',
     ),
   );
-  /* Relationship: Content: Taxonomy terms on node */
+  /* Forbindelse: Indhold: Taksonomitermer på node */
   $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
   $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
-  /* Field: Content: Nid */
+  /* Felt: Indhold: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = 'Navn';
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: CPR Number */
+  /* Felt: Indhold: CPR Number */
   $handler->display->display_options['fields']['field_cpr_number']['id'] = 'field_cpr_number';
   $handler->display->display_options['fields']['field_cpr_number']['table'] = 'field_data_field_cpr_number';
   $handler->display->display_options['fields']['field_cpr_number']['field'] = 'field_cpr_number';
   $handler->display->display_options['fields']['field_cpr_number']['exclude'] = TRUE;
-  /* Field: Field: Parti */
+  /* Felt: Felt: Parti */
   $handler->display->display_options['fields']['entity_id_6']['id'] = 'entity_id_6';
   $handler->display->display_options['fields']['entity_id_6']['table'] = 'field_data_field_party';
   $handler->display->display_options['fields']['entity_id_6']['field'] = 'field_party';
@@ -182,42 +182,42 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['fields']['entity_id_6']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['entity_id_6']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['entity_id_6']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: By */
+  /* Felt: Indhold: City */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_address_city';
   $handler->display->display_options['fields']['entity_id']['field'] = 'field_address_city';
   $handler->display->display_options['fields']['entity_id']['label'] = 'field_address_door';
   $handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id']['hide_empty'] = TRUE;
-  /* Field: Content: Dør / Side */
+  /* Felt: Indhold: Door / Side */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_address_door';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_address_door';
   $handler->display->display_options['fields']['entity_id_1']['label'] = 'field_address_door';
   $handler->display->display_options['fields']['entity_id_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_1']['hide_empty'] = TRUE;
-  /* Field: Content: Sal */
+  /* Felt: Indhold: Floor */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_address_floor';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_address_floor';
   $handler->display->display_options['fields']['entity_id_2']['label'] = 'field_address_floor';
   $handler->display->display_options['fields']['entity_id_2']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_2']['hide_empty'] = TRUE;
-  /* Field: Content: Vej */
+  /* Felt: Indhold: Address */
   $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
   $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_address_road';
   $handler->display->display_options['fields']['entity_id_3']['field'] = 'field_address_road';
   $handler->display->display_options['fields']['entity_id_3']['label'] = 'field_address_road';
   $handler->display->display_options['fields']['entity_id_3']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_3']['hide_empty'] = TRUE;
-  /* Field: Content: Nummer */
+  /* Felt: Indhold: House no. */
   $handler->display->display_options['fields']['entity_id_4']['id'] = 'entity_id_4';
   $handler->display->display_options['fields']['entity_id_4']['table'] = 'field_data_field_address_road_no';
   $handler->display->display_options['fields']['entity_id_4']['field'] = 'field_address_road_no';
   $handler->display->display_options['fields']['entity_id_4']['label'] = 'field_address_road_no';
   $handler->display->display_options['fields']['entity_id_4']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_4']['hide_empty'] = TRUE;
-  /* Field: Content: Postnummer */
+  /* Felt: Indhold: Zip code */
   $handler->display->display_options['fields']['entity_id_5']['id'] = 'entity_id_5';
   $handler->display->display_options['fields']['entity_id_5']['table'] = 'field_data_field_address_zipcode';
   $handler->display->display_options['fields']['entity_id_5']['field'] = 'field_address_zipcode';
@@ -228,7 +228,7 @@ function liste_m_cpr_nummer_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Field: Content: Telefon */
+  /* Felt: Indhold: Telefon */
   $handler->display->display_options['fields']['entity_id_7']['id'] = 'entity_id_7';
   $handler->display->display_options['fields']['entity_id_7']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['entity_id_7']['field'] = 'field_phone';
@@ -239,13 +239,13 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['fields']['entity_id_7']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['entity_id_7']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['entity_id_7']['type'] = 'text_plain';
-  /* Field: Content: Telefon 2 */
+  /* Felt: Indhold: Telefon 2 */
   $handler->display->display_options['fields']['entity_id_8']['id'] = 'entity_id_8';
   $handler->display->display_options['fields']['entity_id_8']['table'] = 'field_data_field_phone2';
   $handler->display->display_options['fields']['entity_id_8']['field'] = 'field_phone2';
   $handler->display->display_options['fields']['entity_id_8']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_8']['hide_empty'] = TRUE;
-  /* Field: Field: Begræns adgang til følgende valgsteder */
+  /* Felt: Felt: Begræns adgang til følgende valgsteder */
   $handler->display->display_options['fields']['entity_id_9']['id'] = 'entity_id_9';
   $handler->display->display_options['fields']['entity_id_9']['table'] = 'field_data_field_polling_station';
   $handler->display->display_options['fields']['entity_id_9']['field'] = 'field_polling_station';
@@ -256,7 +256,7 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['fields']['entity_id_9']['element_wrapper_type'] = 'span';
   $handler->display->display_options['fields']['entity_id_9']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['entity_id_9']['type'] = 'node_reference_plain';
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -268,7 +268,7 @@ function liste_m_cpr_nummer_views_default_views() {
 </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  /* Field: Content: Polling Station post */
+  /* Felt: Indhold: Polling Station post */
   $handler->display->display_options['fields']['field_polling_station_post']['id'] = 'field_polling_station_post';
   $handler->display->display_options['fields']['field_polling_station_post']['table'] = 'field_data_field_polling_station_post';
   $handler->display->display_options['fields']['field_polling_station_post']['field'] = 'field_polling_station_post';
@@ -278,25 +278,25 @@ function liste_m_cpr_nummer_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_1']['label'] = 'Kvittering';
-  /* Sort criterion: Content: Status (field_rsvp) */
+  /* Sorteringskriterie: Felt: Status (field_rsvp) */
   $handler->display->display_options['sorts']['field_rsvp_value']['id'] = 'field_rsvp_value';
   $handler->display->display_options['sorts']['field_rsvp_value']['table'] = 'field_data_field_rsvp';
   $handler->display->display_options['sorts']['field_rsvp_value']['field'] = 'field_rsvp_value';
-  /* Sort criterion: Taxonomy term: Navn */
+  /* Sorteringskriterie: Ord i ordforråd: Navn */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
   $handler->display->display_options['sorts']['name']['relationship'] = 'term_node_tid';
-  /* Sort criterion: Content: Title */
+  /* Sorteringskriterie: Indhold: Titel */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Contextual filter: Field: Begræns adgang til følgende valgsteder (field_polling_station) */
+  /* Kontekstuelt filter: Felt: Begræns adgang til følgende valgsteder (field_polling_station) */
   $handler->display->display_options['arguments']['field_polling_station_nid']['id'] = 'field_polling_station_nid';
   $handler->display->display_options['arguments']['field_polling_station_nid']['table'] = 'field_data_field_polling_station';
   $handler->display->display_options['arguments']['field_polling_station_nid']['field'] = 'field_polling_station_nid';
@@ -306,7 +306,7 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['arguments']['field_polling_station_nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_polling_station_nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_polling_station_nid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -314,13 +314,13 @@ function liste_m_cpr_nummer_views_default_views() {
     'volunteers' => 'volunteers',
   );
   $handler->display->display_options['filters']['type']['group'] = '0';
-  /* Filter criterion: Field: Begræns adgang til følgende valgsteder (field_polling_station) */
+  /* Filterkriterie: Felt: Begræns adgang til følgende valgsteder (field_polling_station) */
   $handler->display->display_options['filters']['field_polling_station_nid']['id'] = 'field_polling_station_nid';
   $handler->display->display_options['filters']['field_polling_station_nid']['table'] = 'field_data_field_polling_station';
   $handler->display->display_options['filters']['field_polling_station_nid']['field'] = 'field_polling_station_nid';
   $handler->display->display_options['filters']['field_polling_station_nid']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_polling_station_nid']['group'] = '0';
-  /* Filter criterion: Content: Polling Station post (field_polling_station_post) */
+  /* Filterkriterie: Indhold: Polling Station post (field_polling_station_post) */
   $handler->display->display_options['filters']['field_polling_station_post_value']['id'] = 'field_polling_station_post_value';
   $handler->display->display_options['filters']['field_polling_station_post_value']['table'] = 'field_data_field_polling_station_post';
   $handler->display->display_options['filters']['field_polling_station_post_value']['field'] = 'field_polling_station_post_value';
@@ -334,20 +334,20 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['title'] = 'Kvitteringsliste';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: View area */
+  /* Overskrift: Global: View-område */
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'valgsted:ctools_context_1';
   $handler->display->display_options['header']['view']['inherit_arguments'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Label */
+  /* Felt: Indhold: Label */
   $handler->display->display_options['fields']['field_label']['id'] = 'field_label';
   $handler->display->display_options['fields']['field_label']['table'] = 'field_data_field_label';
   $handler->display->display_options['fields']['field_label']['field'] = 'field_label';
   $handler->display->display_options['fields']['field_label']['label'] = 'Rolle';
   $handler->display->display_options['fields']['field_label']['element_label_colon'] = FALSE;
-  /* Field: Content: Polling Station post */
+  /* Felt: Indhold: Polling Station post */
   $handler->display->display_options['fields']['field_polling_station_post']['id'] = 'field_polling_station_post';
   $handler->display->display_options['fields']['field_polling_station_post']['table'] = 'field_data_field_polling_station_post';
   $handler->display->display_options['fields']['field_polling_station_post']['field'] = 'field_polling_station_post';
@@ -358,7 +358,7 @@ function liste_m_cpr_nummer_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Field: Field: Parti */
+  /* Felt: Felt: Parti */
   $handler->display->display_options['fields']['entity_id_6']['id'] = 'entity_id_6';
   $handler->display->display_options['fields']['entity_id_6']['table'] = 'field_data_field_party';
   $handler->display->display_options['fields']['entity_id_6']['field'] = 'field_party';
@@ -369,54 +369,54 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['fields']['entity_id_6']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['entity_id_6']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['entity_id_6']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Nid */
+  /* Felt: Indhold: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = 'Navn';
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: By */
+  /* Felt: Indhold: City */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_address_city';
   $handler->display->display_options['fields']['entity_id']['field'] = 'field_address_city';
   $handler->display->display_options['fields']['entity_id']['label'] = 'field_address_door';
   $handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id']['hide_empty'] = TRUE;
-  /* Field: Content: Dør / Side */
+  /* Felt: Indhold: Door / Side */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_address_door';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_address_door';
   $handler->display->display_options['fields']['entity_id_1']['label'] = 'field_address_door';
   $handler->display->display_options['fields']['entity_id_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_1']['hide_empty'] = TRUE;
-  /* Field: Content: Sal */
+  /* Felt: Indhold: Floor */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_address_floor';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_address_floor';
   $handler->display->display_options['fields']['entity_id_2']['label'] = 'field_address_floor';
   $handler->display->display_options['fields']['entity_id_2']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_2']['hide_empty'] = TRUE;
-  /* Field: Content: Vej */
+  /* Felt: Indhold: Address */
   $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
   $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_address_road';
   $handler->display->display_options['fields']['entity_id_3']['field'] = 'field_address_road';
   $handler->display->display_options['fields']['entity_id_3']['label'] = 'field_address_road';
   $handler->display->display_options['fields']['entity_id_3']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_3']['hide_empty'] = TRUE;
-  /* Field: Content: Nummer */
+  /* Felt: Indhold: House no. */
   $handler->display->display_options['fields']['entity_id_4']['id'] = 'entity_id_4';
   $handler->display->display_options['fields']['entity_id_4']['table'] = 'field_data_field_address_road_no';
   $handler->display->display_options['fields']['entity_id_4']['field'] = 'field_address_road_no';
   $handler->display->display_options['fields']['entity_id_4']['label'] = 'field_address_road_no';
   $handler->display->display_options['fields']['entity_id_4']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_4']['hide_empty'] = TRUE;
-  /* Field: Content: Postnummer */
+  /* Felt: Indhold: Zip code */
   $handler->display->display_options['fields']['entity_id_5']['id'] = 'entity_id_5';
   $handler->display->display_options['fields']['entity_id_5']['table'] = 'field_data_field_address_zipcode';
   $handler->display->display_options['fields']['entity_id_5']['field'] = 'field_address_zipcode';
@@ -429,7 +429,7 @@ function liste_m_cpr_nummer_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Field: Content: Telefon */
+  /* Felt: Indhold: Telefon */
   $handler->display->display_options['fields']['entity_id_7']['id'] = 'entity_id_7';
   $handler->display->display_options['fields']['entity_id_7']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['entity_id_7']['field'] = 'field_phone';
@@ -440,13 +440,13 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['fields']['entity_id_7']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['entity_id_7']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['entity_id_7']['type'] = 'text_plain';
-  /* Field: Content: Telefon 2 */
+  /* Felt: Indhold: Telefon 2 */
   $handler->display->display_options['fields']['entity_id_8']['id'] = 'entity_id_8';
   $handler->display->display_options['fields']['entity_id_8']['table'] = 'field_data_field_phone2';
   $handler->display->display_options['fields']['entity_id_8']['field'] = 'field_phone2';
   $handler->display->display_options['fields']['entity_id_8']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_8']['hide_empty'] = TRUE;
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -458,11 +458,11 @@ function liste_m_cpr_nummer_views_default_views() {
 </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  /* Field: Content: CPR Number */
+  /* Felt: Indhold: CPR Number */
   $handler->display->display_options['fields']['field_cpr_number']['id'] = 'field_cpr_number';
   $handler->display->display_options['fields']['field_cpr_number']['table'] = 'field_data_field_cpr_number';
   $handler->display->display_options['fields']['field_cpr_number']['field'] = 'field_cpr_number';
-  /* Field: Content: Diæt */
+  /* Felt: Indhold: Diæt */
   $handler->display->display_options['fields']['field_diaet']['id'] = 'field_diaet';
   $handler->display->display_options['fields']['field_diaet']['table'] = 'field_data_field_diaet';
   $handler->display->display_options['fields']['field_diaet']['field'] = 'field_diaet';
@@ -473,17 +473,17 @@ function liste_m_cpr_nummer_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_1']['label'] = 'Kvittering';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Taxonomy term: Navn */
+  /* Sorteringskriterie: Ord i ordforråd: Navn */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Sort criterion: Content: Polling Station post (field_polling_station_post) */
+  /* Sorteringskriterie: Indhold: Polling Station post (field_polling_station_post) */
   $handler->display->display_options['sorts']['field_polling_station_post_value']['id'] = 'field_polling_station_post_value';
   $handler->display->display_options['sorts']['field_polling_station_post_value']['table'] = 'field_data_field_polling_station_post';
   $handler->display->display_options['sorts']['field_polling_station_post_value']['field'] = 'field_polling_station_post_value';
@@ -493,7 +493,7 @@ function liste_m_cpr_nummer_views_default_views() {
     2 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -501,13 +501,13 @@ function liste_m_cpr_nummer_views_default_views() {
     'volunteers' => 'volunteers',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Field: Begræns adgang til følgende valgsteder (field_polling_station) */
+  /* Filterkriterie: Felt: Begræns adgang til følgende valgsteder (field_polling_station) */
   $handler->display->display_options['filters']['field_polling_station_nid']['id'] = 'field_polling_station_nid';
   $handler->display->display_options['filters']['field_polling_station_nid']['table'] = 'field_data_field_polling_station';
   $handler->display->display_options['filters']['field_polling_station_nid']['field'] = 'field_polling_station_nid';
   $handler->display->display_options['filters']['field_polling_station_nid']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_polling_station_nid']['group'] = 1;
-  /* Filter criterion: Content: Polling Station post (field_polling_station_post) */
+  /* Filterkriterie: Indhold: Polling Station post (field_polling_station_post) */
   $handler->display->display_options['filters']['field_polling_station_post_value']['id'] = 'field_polling_station_post_value';
   $handler->display->display_options['filters']['field_polling_station_post_value']['table'] = 'field_data_field_polling_station_post';
   $handler->display->display_options['filters']['field_polling_station_post_value']['field'] = 'field_polling_station_post_value';
@@ -522,20 +522,20 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['title'] = 'Valgstyrere og tilforordnede';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: View area */
+  /* Overskrift: Global: View-område */
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'valgsted:ctools_context_1';
   $handler->display->display_options['header']['view']['inherit_arguments'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Label */
+  /* Felt: Indhold: Label */
   $handler->display->display_options['fields']['field_label']['id'] = 'field_label';
   $handler->display->display_options['fields']['field_label']['table'] = 'field_data_field_label';
   $handler->display->display_options['fields']['field_label']['field'] = 'field_label';
   $handler->display->display_options['fields']['field_label']['label'] = 'Rolle';
   $handler->display->display_options['fields']['field_label']['element_label_colon'] = FALSE;
-  /* Field: Content: Polling Station post */
+  /* Felt: Indhold: Polling Station post */
   $handler->display->display_options['fields']['field_polling_station_post']['id'] = 'field_polling_station_post';
   $handler->display->display_options['fields']['field_polling_station_post']['table'] = 'field_data_field_polling_station_post';
   $handler->display->display_options['fields']['field_polling_station_post']['field'] = 'field_polling_station_post';
@@ -546,7 +546,7 @@ function liste_m_cpr_nummer_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Field: Field: Parti */
+  /* Felt: Felt: Parti */
   $handler->display->display_options['fields']['entity_id_6']['id'] = 'entity_id_6';
   $handler->display->display_options['fields']['entity_id_6']['table'] = 'field_data_field_party';
   $handler->display->display_options['fields']['entity_id_6']['field'] = 'field_party';
@@ -557,54 +557,54 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['fields']['entity_id_6']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['entity_id_6']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['entity_id_6']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Nid */
+  /* Felt: Indhold: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = 'Navn';
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: By */
+  /* Felt: Indhold: City */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_address_city';
   $handler->display->display_options['fields']['entity_id']['field'] = 'field_address_city';
   $handler->display->display_options['fields']['entity_id']['label'] = 'field_address_door';
   $handler->display->display_options['fields']['entity_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id']['hide_empty'] = TRUE;
-  /* Field: Content: Dør / Side */
+  /* Felt: Indhold: Door / Side */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_address_door';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_address_door';
   $handler->display->display_options['fields']['entity_id_1']['label'] = 'field_address_door';
   $handler->display->display_options['fields']['entity_id_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_1']['hide_empty'] = TRUE;
-  /* Field: Content: Sal */
+  /* Felt: Indhold: Floor */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_address_floor';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_address_floor';
   $handler->display->display_options['fields']['entity_id_2']['label'] = 'field_address_floor';
   $handler->display->display_options['fields']['entity_id_2']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_2']['hide_empty'] = TRUE;
-  /* Field: Content: Vej */
+  /* Felt: Indhold: Address */
   $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
   $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_address_road';
   $handler->display->display_options['fields']['entity_id_3']['field'] = 'field_address_road';
   $handler->display->display_options['fields']['entity_id_3']['label'] = 'field_address_road';
   $handler->display->display_options['fields']['entity_id_3']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_3']['hide_empty'] = TRUE;
-  /* Field: Content: Nummer */
+  /* Felt: Indhold: House no. */
   $handler->display->display_options['fields']['entity_id_4']['id'] = 'entity_id_4';
   $handler->display->display_options['fields']['entity_id_4']['table'] = 'field_data_field_address_road_no';
   $handler->display->display_options['fields']['entity_id_4']['field'] = 'field_address_road_no';
   $handler->display->display_options['fields']['entity_id_4']['label'] = 'field_address_road_no';
   $handler->display->display_options['fields']['entity_id_4']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_4']['hide_empty'] = TRUE;
-  /* Field: Content: Postnummer */
+  /* Felt: Indhold: Zip code */
   $handler->display->display_options['fields']['entity_id_5']['id'] = 'entity_id_5';
   $handler->display->display_options['fields']['entity_id_5']['table'] = 'field_data_field_address_zipcode';
   $handler->display->display_options['fields']['entity_id_5']['field'] = 'field_address_zipcode';
@@ -617,7 +617,7 @@ function liste_m_cpr_nummer_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Field: Content: Telefon */
+  /* Felt: Indhold: Telefon */
   $handler->display->display_options['fields']['entity_id_7']['id'] = 'entity_id_7';
   $handler->display->display_options['fields']['entity_id_7']['table'] = 'field_data_field_phone';
   $handler->display->display_options['fields']['entity_id_7']['field'] = 'field_phone';
@@ -628,13 +628,13 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['fields']['entity_id_7']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['entity_id_7']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['entity_id_7']['type'] = 'text_plain';
-  /* Field: Content: Telefon 2 */
+  /* Felt: Indhold: Telefon 2 */
   $handler->display->display_options['fields']['entity_id_8']['id'] = 'entity_id_8';
   $handler->display->display_options['fields']['entity_id_8']['table'] = 'field_data_field_phone2';
   $handler->display->display_options['fields']['entity_id_8']['field'] = 'field_phone2';
   $handler->display->display_options['fields']['entity_id_8']['exclude'] = TRUE;
   $handler->display->display_options['fields']['entity_id_8']['hide_empty'] = TRUE;
-  /* Field: Field: Begræns adgang til følgende valgsteder */
+  /* Felt: Felt: Begræns adgang til følgende valgsteder */
   $handler->display->display_options['fields']['entity_id_9']['id'] = 'entity_id_9';
   $handler->display->display_options['fields']['entity_id_9']['table'] = 'field_data_field_polling_station';
   $handler->display->display_options['fields']['entity_id_9']['field'] = 'field_polling_station';
@@ -645,7 +645,7 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['fields']['entity_id_9']['element_wrapper_type'] = 'span';
   $handler->display->display_options['fields']['entity_id_9']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['entity_id_9']['type'] = 'node_reference_plain';
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -657,16 +657,16 @@ function liste_m_cpr_nummer_views_default_views() {
 </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  /* Field: Content: CPR Number */
+  /* Felt: Indhold: CPR Number */
   $handler->display->display_options['fields']['field_cpr_number']['id'] = 'field_cpr_number';
   $handler->display->display_options['fields']['field_cpr_number']['table'] = 'field_data_field_cpr_number';
   $handler->display->display_options['fields']['field_cpr_number']['field'] = 'field_cpr_number';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Taxonomy term: Navn */
+  /* Sorteringskriterie: Ord i ordforråd: Navn */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Sort criterion: Content: Polling Station post (field_polling_station_post) */
+  /* Sorteringskriterie: Indhold: Polling Station post (field_polling_station_post) */
   $handler->display->display_options['sorts']['field_polling_station_post_value']['id'] = 'field_polling_station_post_value';
   $handler->display->display_options['sorts']['field_polling_station_post_value']['table'] = 'field_data_field_polling_station_post';
   $handler->display->display_options['sorts']['field_polling_station_post_value']['field'] = 'field_polling_station_post_value';
@@ -676,7 +676,7 @@ function liste_m_cpr_nummer_views_default_views() {
     2 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -684,13 +684,13 @@ function liste_m_cpr_nummer_views_default_views() {
     'volunteers' => 'volunteers',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Field: Begræns adgang til følgende valgsteder (field_polling_station) */
+  /* Filterkriterie: Felt: Begræns adgang til følgende valgsteder (field_polling_station) */
   $handler->display->display_options['filters']['field_polling_station_nid']['id'] = 'field_polling_station_nid';
   $handler->display->display_options['filters']['field_polling_station_nid']['table'] = 'field_data_field_polling_station';
   $handler->display->display_options['filters']['field_polling_station_nid']['field'] = 'field_polling_station_nid';
   $handler->display->display_options['filters']['field_polling_station_nid']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_polling_station_nid']['group'] = 1;
-  /* Filter criterion: Content: Polling Station post (field_polling_station_post) */
+  /* Filterkriterie: Indhold: Polling Station post (field_polling_station_post) */
   $handler->display->display_options['filters']['field_polling_station_post_value']['id'] = 'field_polling_station_post_value';
   $handler->display->display_options['filters']['field_polling_station_post_value']['table'] = 'field_data_field_polling_station_post';
   $handler->display->display_options['filters']['field_polling_station_post_value']['field'] = 'field_polling_station_post_value';
@@ -729,7 +729,6 @@ function liste_m_cpr_nummer_views_default_views() {
     t('Alle'),
     t('Kvitteringsliste m CPR'),
     t('Kvitteringsliste'),
-    t('more'),
     t('Rolle'),
     t('Adresse'),
     t('[entity_id_3] [entity_id_4]  [entity_id_2] [entity_id_1], [entity_id_5] [entity_id]'),
@@ -742,7 +741,7 @@ function liste_m_cpr_nummer_views_default_views() {
   $view = new view();
   $view->name = 'liste_valgsteder_m_cpr';
   $view->description = 'Liste over valgsteder, linker til lister m. cpr';
-  $view->tag = '';
+  $view->tag = 'valghalla, list';
   $view->base_table = 'node';
   $view->human_name = 'Liste Valgsteder m cpr';
   $view->core = 7;
@@ -780,50 +779,42 @@ function liste_m_cpr_nummer_views_default_views() {
     'entity_id_7' => 'entity_id_7',
   );
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Body */
+  /* Felt: Indhold: Body */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['entity_id']['field'] = 'body';
   $handler->display->display_options['fields']['entity_id']['label'] = 'indhold';
-  /* Field: Content: Formand */
-  $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
-  $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_chairman';
-  $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_chairman';
-  /* Field: Content: Kontakt */
+  /* Felt: Indhold: Valgkontakt */
   $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
   $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_contact';
   $handler->display->display_options['fields']['entity_id_3']['field'] = 'field_contact';
-  /* Field: Field: Parti */
+  /* Felt: Felt: Parti */
   $handler->display->display_options['fields']['entity_id_5']['id'] = 'entity_id_5';
   $handler->display->display_options['fields']['entity_id_5']['table'] = 'field_data_field_party';
   $handler->display->display_options['fields']['entity_id_5']['field'] = 'field_party';
-  /* Field: Content: Kontakt */
+  /* Felt: Indhold: Andre kontaktoplysninger */
   $handler->display->display_options['fields']['entity_id_6']['id'] = 'entity_id_6';
   $handler->display->display_options['fields']['entity_id_6']['table'] = 'field_data_field_venue_contact';
   $handler->display->display_options['fields']['entity_id_6']['field'] = 'field_venue_contact';
-  /* Field: Content: Lokalekontakt */
+  /* Felt: Indhold: Lokalekontakt */
   $handler->display->display_options['fields']['entity_id_7']['id'] = 'entity_id_7';
   $handler->display->display_options['fields']['entity_id_7']['table'] = 'field_data_field_venue_contact_name';
   $handler->display->display_options['fields']['entity_id_7']['field'] = 'field_venue_contact_name';
-  /* Field: Content: Frivillige pr. parti */
-  $handler->display->display_options['fields']['entity_id_8']['id'] = 'entity_id_8';
-  $handler->display->display_options['fields']['entity_id_8']['table'] = 'field_data_field_volunteers_pr_party';
-  $handler->display->display_options['fields']['entity_id_8']['field'] = 'field_volunteers_pr_party';
-  /* Field: Content: Valgkreds */
+  /* Felt: Indhold: Valgkreds */
   $handler->display->display_options['fields']['entity_id_9']['id'] = 'entity_id_9';
   $handler->display->display_options['fields']['entity_id_9']['table'] = 'field_data_field_constituency';
   $handler->display->display_options['fields']['entity_id_9']['field'] = 'field_constituency';
-  /* Sort criterion: Content: Title */
+  /* Sorteringskriterie: Indhold: Titel */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Contextual filter: Content: Type */
+  /* Kontekstuelt filter: Indhold: Type */
   $handler->display->display_options['arguments']['type']['id'] = 'type';
   $handler->display->display_options['arguments']['type']['table'] = 'node';
   $handler->display->display_options['arguments']['type']['field'] = 'type';
@@ -836,7 +827,7 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['arguments']['type']['validate_options']['types'] = array(
     'polling_station' => 'polling_station',
   );
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -895,14 +886,14 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
+  /* Felt: Indhold: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -911,7 +902,7 @@ function liste_m_cpr_nummer_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]/valgstederm';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
@@ -936,16 +927,14 @@ function liste_m_cpr_nummer_views_default_views() {
     t('næste ›'),
     t('sidste »'),
     t('indhold'),
-    t('Formand'),
-    t('Kontakt'),
+    t('Valgkontakt'),
     t('Parti'),
+    t('Andre kontaktoplysninger'),
     t('Lokalekontakt'),
-    t('Frivillige pr. parti'),
     t('Valgkreds'),
     t('Alle'),
     t('Side m  CPR'),
     t('Lister Valghalla med CPR numre'),
-    t('more'),
     t('Valgstyrere og tilforordnede'),
     t('Kvitteringslister for diæter'),
   );
